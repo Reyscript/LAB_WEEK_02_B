@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.graphics.toColorInt
 
 class ResultActivity : AppCompatActivity() {
     companion object {
@@ -30,7 +31,7 @@ class ResultActivity : AppCompatActivity() {
             val resultMessage = findViewById<TextView>(R.id.color_code_result_message)
 
             try {
-                backgroundScreen.setBackgroundColor(Color.parseColor("#$colorCode"))
+                backgroundScreen.setBackgroundColor("#$colorCode".toColorInt())
                 resultMessage.text = getString(R.string.color_code_result_message, colorCode?.uppercase())
             }
             catch (ex: IllegalArgumentException){
